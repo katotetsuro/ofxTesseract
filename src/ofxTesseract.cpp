@@ -9,7 +9,8 @@ void ofxTesseract::setup(string dataPath, bool absolute, string language) {
 	// so we override it by setting an environment variable
 	setenv("TESSDATA_PREFIX", absoluteTessdataPath.c_str(), 1);
 	tess.Init(absoluteTessdataPath.c_str(), language.c_str());
-
+//    tess.Init(absoluteTessdataPath.c_str(), language.c_str(), tesseract::OEM_TESSERACT_CUBE_COMBINED, NULL, 0, NULL, NULL, false);
+    
 	// fixes issues with hocr - see http://code.google.com/p/tesseract-ocr/issues/detail?id=463
 	tess.SetInputName("");
 	setMode(AUTO);
@@ -45,7 +46,8 @@ ofxTesseract::Mode ofxTesseract::getMode(string modeName) {
 }
 
 void ofxTesseract::setAccuracy(Accuracy accuracy) {
-	tess.SetAccuracyVSpeed((tesseract::AccuracyVSpeed) accuracy);
+    // あとからEngineModeを変えられないみたい
+//	tess.SetAccuracyVSpeed((tesseract::AccuracyVSpeed) accuracy);
 }
 
 string ofxTesseract::findText(ofImage& img) {

@@ -21,9 +21,14 @@ public:
 		CHAR = tesseract::PSM_SINGLE_CHAR
 	};
 	
-	enum Accuracy  {
-		ACCURATE = tesseract::AVS_MOST_ACCURATE,
-		FAST = tesseract::AVS_FASTEST
+//	enum Accuracy  {
+//        tesseract::
+//		ACCURATE = tesseract::AVS_MOST_ACCURATE,
+//		FAST = tesseract::AVS_FASTEST
+//	};
+    enum Accuracy  {
+		ACCURATE = tesseract::OEM_TESSERACT_CUBE_COMBINED,
+		FAST = tesseract::OEM_TESSERACT_ONLY
 	};
 
 	// dataPath is where to find a folder with tessdata inside
